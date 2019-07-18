@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "abdb4e64-cd8d-416b-9c9f-7002407e28b5",
+		"name": "GeckoForm API",
+		"description": "Example requestions for integration with the GeckoForm API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						},
+						"description": "Refresh all auth tokens"
+					},
+					"response": []
+				}
+			],
+			"description": "Requests for working with GeckoAuth"
+		},
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "Search Contacts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/contacts?keyword=smith&per_page=10",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "smith"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Contact by ID with fields",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/contacts/100?contact_rfields=id,uuid,email&include=fields.contact_primary_values&field_id=@18858|18857&field_rfields=type,label,data_type",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"contacts",
+								"100"
+							],
+							"query": [
+								{
+									"key": "contact_rfields",
+									"value": "id,uuid,email"
+								},
+								{
+									"key": "include",
+									"value": "fields.contact_primary_values"
+								},
+								{
+									"key": "field_id",
+									"value": "@18858|18857"
+								},
+								{
+									"key": "field_rfields",
+									"value": "type,label,data_type"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fields",
+			"item": [
+				{
+					"name": "List Contact Fields",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Responses",
+			"item": [
+				{
+					"name": "Get Recent Response by Form",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Response",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Forms",
+			"item": [
+				{
+					"name": "Get Newest Form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/forms?order_by=created_at|desc&per_page=1&include=fields",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"forms"
+							],
+							"query": [
+								{
+									"key": "order_by",
+									"value": "created_at|desc"
+								},
+								{
+									"key": "per_page",
+									"value": "1"
+								},
+								{
+									"key": "include",
+									"value": "fields"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{id-token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "09661ed3-0f6f-43ab-9081-186dcacab42d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "10b0cdbe-2211-4764-8ff6-16bfc27eaed5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b7177c27-8878-4f77-9025-23bb19044a0d",
+			"key": "base-url",
+			"value": "https://api-eu.geckoform.com/",
+			"type": "string"
+		},
+		{
+			"id": "6af3ad3e-015d-4808-87f4-f7dcba96f13c",
+			"key": "auth-url",
+			"value": "https://account-api.geckoengage.com/",
+			"type": "string"
+		}
+	]
+}
