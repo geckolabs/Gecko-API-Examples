@@ -11,11 +11,51 @@
 			"item": [
 				{
 					"name": "Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "13f6420b-7ca5-4cf4-b33a-058283771381",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"postman.setEnvironmentVariable(\"refresh-token\", jsonData.RefreshToken);",
+									"postman.setEnvironmentVariable(\"access-token\", jsonData.AccessToken);",
+									"postman.setEnvironmentVariable(\"id-token\", jsonData.IdToken);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{refresh-token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{refresh-token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": ""
+							"raw": "{{auth-url}}/tokens/refresh",
+							"host": [
+								"{{auth-url}}"
+							],
+							"path": [
+								"tokens",
+								"refresh"
+							]
 						},
 						"description": "Refresh all auth tokens"
 					},
@@ -118,10 +158,32 @@
 				{
 					"name": "List Contact Fields",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{base-url}}/fields?field_type=contact",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"fields"
+							],
+							"query": [
+								{
+									"key": "field_type",
+									"value": "contact"
+								}
+							]
 						}
 					},
 					"response": []
@@ -134,10 +196,36 @@
 				{
 					"name": "Get Recent Response by Form",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{base-url}}/responses?form_id=4297&created_within=7200",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"responses"
+							],
+							"query": [
+								{
+									"key": "form_id",
+									"value": "4297"
+								},
+								{
+									"key": "created_within",
+									"value": "7200"
+								}
+							]
 						}
 					},
 					"response": []
@@ -145,10 +233,37 @@
 				{
 					"name": "Submit Response",
 					"request": {
-						"method": "GET",
-						"header": [],
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"21FO007tpr8cl100ioa5qtyzjk\",\n    \"fields\": {\n        \"field21817\": {\n            \"first_name\": \"Example\",\n            \"last_name\": \"Response\"\n        },\n        \"field21818\": \"response@example.com\"\n    }\n}"
+						},
 						"url": {
-							"raw": ""
+							"raw": "{{base-url}}/responses",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"responses"
+							]
 						}
 					},
 					"response": []
@@ -236,13 +351,13 @@
 	],
 	"variable": [
 		{
-			"id": "b7177c27-8878-4f77-9025-23bb19044a0d",
+			"id": "dd1ef423-8d68-4e6d-b50a-e9c4055b2e1c",
 			"key": "base-url",
 			"value": "https://api-eu.geckoform.com/",
 			"type": "string"
 		},
 		{
-			"id": "6af3ad3e-015d-4808-87f4-f7dcba96f13c",
+			"id": "1a2f27e8-f801-4148-a838-b9711cfe0342",
 			"key": "auth-url",
 			"value": "https://account-api.geckoengage.com/",
 			"type": "string"
