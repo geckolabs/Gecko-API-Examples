@@ -8,3 +8,5 @@ GeckoSupport will be able to provide you with these API tokens.
 You can use the "Auth/Refresh Token" request to refresh all three tokens, the values in the environment will automatically be updated.
 
 As you execute the other requests they will automatically use the latest token from the environment.
+
+Many of the examples contain account specific IDs which well need to be adjusted for your account.
