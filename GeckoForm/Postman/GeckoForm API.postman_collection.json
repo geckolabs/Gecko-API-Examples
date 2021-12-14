@@ -1,69 +1,11 @@
 {
 	"info": {
-		"_postman_id": "abdb4e64-cd8d-416b-9c9f-7002407e28b5",
+		"_postman_id": "38330798-4ece-4ff7-99f5-312a1ab60e1b",
 		"name": "GeckoForm API",
 		"description": "Example requestions for integration with the GeckoForm API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "Refresh Token",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "13f6420b-7ca5-4cf4-b33a-058283771381",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"postman.setEnvironmentVariable(\"refresh-token\", jsonData.RefreshToken);",
-									"postman.setEnvironmentVariable(\"access-token\", jsonData.AccessToken);",
-									"postman.setEnvironmentVariable(\"id-token\", jsonData.IdToken);",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{refresh-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{refresh-token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{auth-url}}/tokens/refresh",
-							"host": [
-								"{{auth-url}}"
-							],
-							"path": [
-								"tokens",
-								"refresh"
-							]
-						},
-						"description": "Refresh all auth tokens"
-					},
-					"response": []
-				}
-			],
-			"description": "Requests for working with GeckoAuth"
-		},
 		{
 			"name": "Contacts",
 			"item": [
@@ -98,6 +40,56 @@
 								{
 									"key": "per_page",
 									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Advanced Search Contacts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"per_page\": 15,\n    \"page\": 1,\n    \"conditions\": [\n        {\n            \"model\": \"contact_dates\",\n            \"property\": \"created_at\",\n            \"type\": \">\",\n            \"value\": \"1609545599\"\n        },\n        {\n            \"model\": \"contact_field\",\n            \"contact_field_id\": 2,\n            \"type\": \"%\",\n            \"value\": [\n                \"@geckoengage.com\"\n            ]\n        }\n    ],\n    \"requirement\": \"ANY\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/contacts?",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "10",
+									"disabled": true
 								}
 							]
 						}
@@ -150,7 +142,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Fields",
@@ -188,7 +181,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Responses",
@@ -268,7 +262,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Forms",
@@ -314,7 +309,59 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Values",
+			"item": [
+				{
+					"name": "Replace Value",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/javascript",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": \"new value\"\n}",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/values/{{value-id}}/replace",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"values",
+								"{{value-id}}",
+								"replace"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
@@ -362,5 +409,6 @@
 			"value": "https://account-api.geckoengage.com/",
 			"type": "string"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

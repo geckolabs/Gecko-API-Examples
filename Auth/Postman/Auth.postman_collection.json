@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "1914e7e9-3d42-4043-8dc5-7ab8478f1519",
+		"name": "Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Refresh Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "13f6420b-7ca5-4cf4-b33a-058283771381",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"refresh-token\", jsonData.RefreshToken);",
+							"postman.setEnvironmentVariable(\"access-token\", jsonData.AccessToken);",
+							"postman.setEnvironmentVariable(\"id-token\", jsonData.IdToken);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{refresh-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{refresh-token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{auth-url}}/tokens/refresh",
+					"host": [
+						"{{auth-url}}"
+					],
+					"path": [
+						"tokens",
+						"refresh"
+					]
+				},
+				"description": "Refresh all auth tokens"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "12fcfc78-b3ba-474d-a952-5c6d38d6474b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9ccf4584-8290-423f-90eb-1086c729dda6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cbcc822e-2b98-4c28-ae45-24da4e888d2d",
+			"key": "base-url",
+			"value": "https://account-api.geckoengage.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

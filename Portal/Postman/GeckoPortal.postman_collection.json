@@ -1,0 +1,3917 @@
+{
+	"info": {
+		"_postman_id": "61216f2c-d399-42e1-a3f5-c2c685147fe5",
+		"name": "GeckoPortal-{{ENVIRONMENT}}",
+		"description": "Query endpoints for Gecko Portal\n\nContact Support:\n Email: support@geckoengage.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "(root)",
+			"item": [
+				{
+					"name": "OPTIONS preflight",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								""
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "OPTIONS",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": ""
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": ""
+								},
+								{
+									"key": "Cache-Control",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Return a hello world",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								""
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The hello world page",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "attendances",
+							"item": [
+								{
+									"name": "Get data about attendances for a particular event",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/events/:id/attendances?page=1&perPage=50&updatedAt=<integer>&includeArchived=no",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"events",
+												":id",
+												"attendances"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Get a particular page of data"
+												},
+												{
+													"key": "perPage",
+													"value": "50",
+													"description": "The number of results in a page"
+												},
+												{
+													"key": "updatedAt",
+													"value": "<integer>",
+													"description": "Get data added since this timestamp"
+												},
+												{
+													"key": "includeArchived",
+													"value": "no",
+													"description": "Control how archived entites are returned\n  * `yes` - Return both archived and non archived entites\n  * `no` - Do not return archived entites\n  * `only` - Return only archived entites\n"
+												}
+											],
+											"variable": [
+												{
+													"key": "subdomain",
+													"value": "{{subdomain}}",
+													"description": "Subdomain assigned at account creation"
+												},
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "The ID of the event we are interested in"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Client error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": ""
+													}
+												],
+												"url": {
+													"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>/attendances?page=1&perPage=50&updatedAt=<integer>&includeArchived=no",
+													"protocol": "https",
+													"host": [
+														"{{subdomain}}",
+														"api",
+														"geckoengage",
+														"com"
+													],
+													"path": [
+														"events",
+														"<integer>",
+														"attendances"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"key": "perPage",
+															"value": "50"
+														},
+														{
+															"key": "updatedAt",
+															"value": "<integer>"
+														},
+														{
+															"key": "includeArchived",
+															"value": "no"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+										},
+										{
+											"name": "The returned event attendance data",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": ""
+													}
+												],
+												"url": {
+													"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>/attendances?page=1&perPage=50&updatedAt=<integer>&includeArchived=no",
+													"protocol": "https",
+													"host": [
+														"{{subdomain}}",
+														"api",
+														"geckoengage",
+														"com"
+													],
+													"path": [
+														"events",
+														"<integer>",
+														"attendances"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"key": "perPage",
+															"value": "50"
+														},
+														{
+															"key": "updatedAt",
+															"value": "<integer>"
+														},
+														{
+															"key": "includeArchived",
+															"value": "no"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"id\": \"<integer>\",\n   \"contactId\": \"<integer>\",\n   \"eventId\": \"<integer>\",\n   \"status\": \"<string>\",\n   \"guestCount\": \"<integer>\"\n  },\n  {\n   \"id\": \"<integer>\",\n   \"contactId\": \"<integer>\",\n   \"eventId\": \"<integer>\",\n   \"status\": \"<string>\",\n   \"guestCount\": \"<integer>\"\n  }\n ],\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n },\n \"pagination\": {\n  \"total\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"page\": 1,\n  \"perPage\": 50,\n  \"next\": \"<integer>\",\n  \"prev\": \"<integer>\"\n }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update statuses of attendances within a particular event",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/events/:id/attendances",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"events",
+												":id",
+												"attendances"
+											],
+											"variable": [
+												{
+													"key": "subdomain",
+													"value": "{{subdomain}}",
+													"description": "Subdomain assigned at account creation"
+												},
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "The ID of the event we are interested in"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Client error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": ""
+													}
+												],
+												"url": {
+													"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>/attendances",
+													"protocol": "https",
+													"host": [
+														"{{subdomain}}",
+														"api",
+														"geckoengage",
+														"com"
+													],
+													"path": [
+														"events",
+														"<integer>",
+														"attendances"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+										},
+										{
+											"name": "Summary of which event attendances were updated",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": ""
+													}
+												],
+												"url": {
+													"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>/attendances",
+													"protocol": "https",
+													"host": [
+														"{{subdomain}}",
+														"api",
+														"geckoengage",
+														"com"
+													],
+													"path": [
+														"events",
+														"<integer>",
+														"attendances"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"-eventId-\": {\n    \"success\": \"<boolean>\",\n    \"message\": \"<string>\"\n   }\n  },\n  {\n   \"-eventId-\": {\n    \"success\": \"<boolean>\",\n    \"message\": \"<string>\"\n   }\n  }\n ],\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Get data about a particular event",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/events/:id?closed=<string>&includeArchived=no&status=<string>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"events",
+										":id"
+									],
+									"query": [
+										{
+											"key": "closed",
+											"value": "<string>",
+											"description": "Filter events by closing date:\n  * `yes` - Return only events that have passed the closing date\n  * `no` - Return only events that do not have a closing date or the closing date has not passed\n"
+										},
+										{
+											"key": "includeArchived",
+											"value": "no",
+											"description": "Control how archived entites are returned\n  * `yes` - Return both archived and non archived entites\n  * `no` - Do not return archived entites\n  * `only` - Return only archived entites\n"
+										},
+										{
+											"key": "status",
+											"value": "<string>",
+											"description": "Filter events by status\n  * `active` - Events which have not yet ended but may or may not have started\n  * `current` - Events which have started and have not yet ended\n  * `future` - Events which have already ended\n  * `past` - Events that have not yet started\n"
+										}
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										},
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "The ID of the event we are interested in"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Client error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>?closed=<string>&includeArchived=no&status=<string>",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"events",
+												"<integer>"
+											],
+											"query": [
+												{
+													"key": "closed",
+													"value": "<string>"
+												},
+												{
+													"key": "includeArchived",
+													"value": "no"
+												},
+												{
+													"key": "status",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								},
+								{
+									"name": "Event not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>?closed=<string>&includeArchived=no&status=<string>",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"events",
+												"<integer>"
+											],
+											"query": [
+												{
+													"key": "closed",
+													"value": "<string>"
+												},
+												{
+													"key": "includeArchived",
+													"value": "no"
+												},
+												{
+													"key": "status",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+								},
+								{
+									"name": "The returned event data",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>?closed=<string>&includeArchived=no&status=<string>",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"events",
+												"<integer>"
+											],
+											"query": [
+												{
+													"key": "closed",
+													"value": "<string>"
+												},
+												{
+													"key": "includeArchived",
+													"value": "no"
+												},
+												{
+													"key": "status",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"data\": {\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"closingDate\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"full\": \"<boolean>\",\n  \"type\": \"<integer>\",\n  \"maximum\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"registrationType\": \"<integer>\",\n  \"categoryId\": \"<integer>\",\n  \"chatChannelId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<string>\",\n  \"imageId\": \"<integer>\",\n  \"locationId\": \"<string>\",\n  \"autoWaitlist\": \"<boolean>\",\n  \"checkinStart\": \"<integer>\",\n  \"maximumGuests\": \"<integer>\",\n  \"tags\": [\n   \"<integer>\",\n   \"<integer>\"\n  ],\n  \"deliveryMethod\": \"<string>\",\n  \"webinarUrl\": \"<string>\",\n  \"webinarDescription\": \"<string>\",\n  \"updatedAt\": \"<integer>\",\n  \"createdAt\": \"<integer>\",\n  \"archivedAt\": \"<integer>\",\n  \"hostIds\": [\n   \"<string>\",\n   \"<string>\"\n  ],\n  \"sessions\": [\n   {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"endDate\": \"<string>\",\n    \"closingDate\": \"<string>\",\n    \"timezone\": \"<string>\",\n    \"archivedAt\": \"<string>\",\n    \"description\": \"<string>\",\n    \"image\": \"<uri>\",\n    \"imageId\": \"<number>\",\n    \"locationId\": \"<string>\",\n    \"tags\": [\n     \"<string>\",\n     \"<string>\"\n    ],\n    \"autoWaitlist\": \"<boolean>\",\n    \"sessionTimes\": [\n     {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"startDate\": \"<string>\",\n      \"endDate\": \"<string>\",\n      \"closingDate\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"archivedAt\": \"<string>\",\n      \"full\": \"<boolean>\"\n     },\n     {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"startDate\": \"<string>\",\n      \"endDate\": \"<string>\",\n      \"closingDate\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"archivedAt\": \"<string>\",\n      \"full\": \"<boolean>\"\n     }\n    ]\n   },\n   {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"startDate\": \"<string>\",\n    \"endDate\": \"<string>\",\n    \"closingDate\": \"<string>\",\n    \"timezone\": \"<string>\",\n    \"archivedAt\": \"<string>\",\n    \"description\": \"<string>\",\n    \"image\": \"<uri>\",\n    \"imageId\": \"<number>\",\n    \"locationId\": \"<string>\",\n    \"tags\": [\n     \"<string>\",\n     \"<string>\"\n    ],\n    \"autoWaitlist\": \"<boolean>\",\n    \"sessionTimes\": [\n     {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"startDate\": \"<string>\",\n      \"endDate\": \"<string>\",\n      \"closingDate\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"archivedAt\": \"<string>\",\n      \"full\": \"<boolean>\"\n     },\n     {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"startDate\": \"<string>\",\n      \"endDate\": \"<string>\",\n      \"closingDate\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"archivedAt\": \"<string>\",\n      \"full\": \"<boolean>\"\n     }\n    ]\n   }\n  ]\n },\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get data about contacts for a particular event",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/events/:id/contacts?page=1&perPage=50&updatedAt=<integer>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"events",
+										":id",
+										"contacts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Get a particular page of data"
+										},
+										{
+											"key": "perPage",
+											"value": "50",
+											"description": "The number of results in a page"
+										},
+										{
+											"key": "updatedAt",
+											"value": "<integer>",
+											"description": "Get data added since this timestamp"
+										}
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										},
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "The ID of the event we are interested in"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "The returned event contact data",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>/contacts?page=1&perPage=50&updatedAt=<integer>",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"events",
+												"<integer>",
+												"contacts"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "perPage",
+													"value": "50"
+												},
+												{
+													"key": "updatedAt",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"id\": \"<integer>\",\n   \"name\": \"<string>\",\n   \"email\": \"<email>\"\n  },\n  {\n   \"id\": \"<integer>\",\n   \"name\": \"<string>\",\n   \"email\": \"<email>\"\n  }\n ],\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n },\n \"pagination\": {\n  \"total\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"page\": 1,\n  \"perPage\": 50,\n  \"next\": \"<integer>\",\n  \"prev\": \"<integer>\"\n }\n}"
+								},
+								{
+									"name": "Client error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>/contacts?page=1&perPage=50&updatedAt=<integer>",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"events",
+												"<integer>",
+												"contacts"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "perPage",
+													"value": "50"
+												},
+												{
+													"key": "updatedAt",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get all locations for an event",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/events/:id/locations?page=1&perPage=50&updatedAt=<integer>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"events",
+										":id",
+										"locations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Get a particular page of data"
+										},
+										{
+											"key": "perPage",
+											"value": "50",
+											"description": "The number of results in a page"
+										},
+										{
+											"key": "updatedAt",
+											"value": "<integer>",
+											"description": "Get data added since this timestamp"
+										}
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										},
+										{
+											"key": "id",
+											"value": "<integer>",
+											"description": "The ID of the event we are interested in"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Page of location data",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>/locations?page=1&perPage=50&updatedAt=<integer>",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"events",
+												"<integer>",
+												"locations"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "perPage",
+													"value": "50"
+												},
+												{
+													"key": "updatedAt",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n },\n \"pagination\": {\n  \"total\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"page\": 1,\n  \"perPage\": 50,\n  \"next\": \"<integer>\",\n  \"prev\": \"<integer>\"\n },\n \"data\": [\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"address\": \"<string>\",\n   \"mapUrl\": \"<string>\",\n   \"lat\": \"<number>\",\n   \"lon\": \"<number>\",\n   \"googlePlaceId\": \"<string>\",\n   \"mapConfig\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  },\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"address\": \"<string>\",\n   \"mapUrl\": \"<string>\",\n   \"lat\": \"<number>\",\n   \"lon\": \"<number>\",\n   \"googlePlaceId\": \"<string>\",\n   \"mapConfig\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  }\n ]\n}"
+								},
+								{
+									"name": "Client error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/events/<integer>/locations?page=1&perPage=50&updatedAt=<integer>",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"events",
+												"<integer>",
+												"locations"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "perPage",
+													"value": "50"
+												},
+												{
+													"key": "updatedAt",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get a page of event data",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/events?search=<string>&orderBy=-startDate&page=1&perPage=50&categoryId=<integer>&closed=<string>&status=<string>",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"events"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "<string>",
+									"description": "Filter events by searching by name"
+								},
+								{
+									"key": "orderBy",
+									"value": "-startDate",
+									"description": "Sort top level events by field(s)"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Get a particular page of data"
+								},
+								{
+									"key": "perPage",
+									"value": "50",
+									"description": "The number of results in a page"
+								},
+								{
+									"key": "categoryId",
+									"value": "<integer>",
+									"description": "Filter results to entites assigned a cateory"
+								},
+								{
+									"key": "closed",
+									"value": "<string>",
+									"description": "Filter events by closing date:\n  * `yes` - Return only events that have passed the closing date\n  * `no` - Return only events that do not have a closing date or the closing date has not passed\n"
+								},
+								{
+									"key": "status",
+									"value": "<string>",
+									"description": "Filter events by status\n  * `active` - Events which have not yet ended but may or may not have started\n  * `current` - Events which have started and have not yet ended\n  * `future` - Events which have already ended\n  * `past` - Events that have not yet started\n"
+								}
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Client error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/events?search=<string>&orderBy=-startDate&page=1&perPage=50&categoryId=<integer>&closed=<string>&status=<string>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"events"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "<string>"
+										},
+										{
+											"key": "orderBy",
+											"value": "-startDate"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "50"
+										},
+										{
+											"key": "categoryId",
+											"value": "<integer>"
+										},
+										{
+											"key": "closed",
+											"value": "<string>"
+										},
+										{
+											"key": "status",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+						},
+						{
+							"name": "The returned page of event data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/events?search=<string>&orderBy=-startDate&page=1&perPage=50&categoryId=<integer>&closed=<string>&status=<string>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"events"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "<string>"
+										},
+										{
+											"key": "orderBy",
+											"value": "-startDate"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "50"
+										},
+										{
+											"key": "categoryId",
+											"value": "<integer>"
+										},
+										{
+											"key": "closed",
+											"value": "<string>"
+										},
+										{
+											"key": "status",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n },\n \"pagination\": {\n  \"total\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"page\": 1,\n  \"perPage\": 50,\n  \"next\": \"<integer>\",\n  \"prev\": \"<integer>\"\n },\n \"data\": [\n  {\n   \"id\": \"<integer>\",\n   \"name\": \"<string>\",\n   \"type\": \"<integer>\",\n   \"full\": \"<boolean>\",\n   \"startDate\": \"<string>\",\n   \"endDate\": \"<string>\",\n   \"timezone\": \"<string>\",\n   \"deliveryMethod\": \"<string>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"closingDate\": \"<string>\",\n   \"maximum\": \"<integer>\",\n   \"userId\": \"<integer>\",\n   \"registrationType\": \"<integer>\",\n   \"categoryId\": \"<integer>\",\n   \"chatChannelId\": \"<string>\",\n   \"description\": \"<string>\",\n   \"image\": \"<string>\",\n   \"imageId\": \"<integer>\",\n   \"locationId\": \"<string>\",\n   \"autoWaitlist\": \"<boolean>\",\n   \"checkinStart\": \"<integer>\",\n   \"maximumGuests\": \"<integer>\",\n   \"tags\": [\n    \"<integer>\",\n    \"<integer>\"\n   ],\n   \"webinarUrl\": \"<string>\",\n   \"webinarDescription\": \"<string>\",\n   \"archivedAt\": \"<integer>\",\n   \"hostIds\": [\n    \"<string>\",\n    \"<string>\"\n   ]\n  },\n  {\n   \"id\": \"<integer>\",\n   \"name\": \"<string>\",\n   \"type\": \"<integer>\",\n   \"full\": \"<boolean>\",\n   \"startDate\": \"<string>\",\n   \"endDate\": \"<string>\",\n   \"timezone\": \"<string>\",\n   \"deliveryMethod\": \"<string>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"closingDate\": \"<string>\",\n   \"maximum\": \"<integer>\",\n   \"userId\": \"<integer>\",\n   \"registrationType\": \"<integer>\",\n   \"categoryId\": \"<integer>\",\n   \"chatChannelId\": \"<string>\",\n   \"description\": \"<string>\",\n   \"image\": \"<string>\",\n   \"imageId\": \"<integer>\",\n   \"locationId\": \"<string>\",\n   \"autoWaitlist\": \"<boolean>\",\n   \"checkinStart\": \"<integer>\",\n   \"maximumGuests\": \"<integer>\",\n   \"tags\": [\n    \"<integer>\",\n    \"<integer>\"\n   ],\n   \"webinarUrl\": \"<string>\",\n   \"webinarDescription\": \"<string>\",\n   \"archivedAt\": \"<integer>\",\n   \"hostIds\": [\n    \"<string>\",\n    \"<string>\"\n   ]\n  }\n ]\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "locations",
+			"item": [
+				{
+					"name": "Get a page of location data",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/locations?page=1&perPage=50",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"locations"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Get a particular page of data"
+								},
+								{
+									"key": "perPage",
+									"value": "50",
+									"description": "The number of results in a page"
+								}
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The returned page of location data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/locations?page=1&perPage=50",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"locations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n },\n \"pagination\": {\n  \"total\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"page\": 1,\n  \"perPage\": 50,\n  \"next\": \"<integer>\",\n  \"prev\": \"<integer>\"\n },\n \"data\": [\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"address\": \"<string>\",\n   \"mapUrl\": \"<string>\",\n   \"lat\": \"<number>\",\n   \"lon\": \"<number>\",\n   \"googlePlaceId\": \"<string>\",\n   \"mapConfig\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  },\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"address\": \"<string>\",\n   \"mapUrl\": \"<string>\",\n   \"lat\": \"<number>\",\n   \"lon\": \"<number>\",\n   \"googlePlaceId\": \"<string>\",\n   \"mapConfig\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Client error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/locations?page=1&perPage=50",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"locations"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get data about a particular locations",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/locations/:id",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"locations",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								},
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "The ID of the location we are interested in"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Client error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/locations/<string>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"locations",
+										"<string>"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+						},
+						{
+							"name": "The returned location data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/locations/<string>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"locations",
+										"<string>"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"address\": \"<string>\",\n   \"mapUrl\": \"<string>\",\n   \"lat\": \"<number>\",\n   \"lon\": \"<number>\",\n   \"googlePlaceId\": \"<string>\",\n   \"mapConfig\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  },\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"address\": \"<string>\",\n   \"mapUrl\": \"<string>\",\n   \"lat\": \"<number>\",\n   \"lon\": \"<number>\",\n   \"googlePlaceId\": \"<string>\",\n   \"mapConfig\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  }\n ],\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "hosts",
+			"item": [
+				{
+					"name": "Get a page of host data",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/hosts?page=1&perPage=50",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"hosts"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Get a particular page of data"
+								},
+								{
+									"key": "perPage",
+									"value": "50",
+									"description": "The number of results in a page"
+								}
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The returned page of host data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/hosts?page=1&perPage=50",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"hosts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n },\n \"pagination\": {\n  \"total\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"page\": 1,\n  \"perPage\": 50,\n  \"next\": \"<integer>\",\n  \"prev\": \"<integer>\"\n },\n \"data\": [\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"firstName\": \"<string>\",\n   \"lastName\": \"<string>\",\n   \"email\": \"<email>\",\n   \"position\": \"<string>\",\n   \"bio\": \"<string>\",\n   \"avatar\": \"<string>\",\n   \"avatarId\": \"<string>\",\n   \"socialOptions\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  },\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"firstName\": \"<string>\",\n   \"lastName\": \"<string>\",\n   \"email\": \"<email>\",\n   \"position\": \"<string>\",\n   \"bio\": \"<string>\",\n   \"avatar\": \"<string>\",\n   \"avatarId\": \"<string>\",\n   \"socialOptions\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Client error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/hosts?page=1&perPage=50",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"hosts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "perPage",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get data about a particular host",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/hosts/:id",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"hosts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								},
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "The ID of the host we are interested in"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Host Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/hosts/<string>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"hosts",
+										"<string>"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Client error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/hosts/<string>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"hosts",
+										"<string>"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+						},
+						{
+							"name": "The returned host data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/hosts/<string>",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"hosts",
+										"<string>"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"firstName\": \"<string>\",\n   \"lastName\": \"<string>\",\n   \"email\": \"<email>\",\n   \"position\": \"<string>\",\n   \"bio\": \"<string>\",\n   \"avatar\": \"<string>\",\n   \"avatarId\": \"<string>\",\n   \"socialOptions\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  },\n  {\n   \"id\": \"<string>\",\n   \"accountId\": \"<integer>\",\n   \"createdAt\": \"<integer>\",\n   \"updatedAt\": \"<integer>\",\n   \"title\": \"<string>\",\n   \"firstName\": \"<string>\",\n   \"lastName\": \"<string>\",\n   \"email\": \"<email>\",\n   \"position\": \"<string>\",\n   \"bio\": \"<string>\",\n   \"avatar\": \"<string>\",\n   \"avatarId\": \"<string>\",\n   \"socialOptions\": \"<object>\",\n   \"archivedAt\": \"<integer>\"\n  }\n ],\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "changelog",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get changelog by ID",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/changelog/:id",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"changelog",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return a changelog from a given ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/changelog/:id",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"changelog",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"data\": {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"releaseType\": \"<string>\",\n    \"app\": \"<string>\",\n    \"createdAt\": \"<number>\",\n    \"updatedAt\": \"<number>\",\n    \"link\": \"<string>\",\n    \"archivedAt\": \"<number>\"\n   }\n  },\n  {\n   \"data\": {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"releaseType\": \"<string>\",\n    \"app\": \"<string>\",\n    \"createdAt\": \"<number>\",\n    \"updatedAt\": \"<number>\",\n    \"link\": \"<string>\",\n    \"archivedAt\": \"<number>\"\n   }\n  }\n ],\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Deleting a changelog",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/changelog/:id",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"changelog",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return an array when successful",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/changelog/:id",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"changelog",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"data\": \"<array>\",\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Return a list of changelogs ordered newest to oldest",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/changelog",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"changelog"
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Return a list of changelogs and pagination options",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/changelog",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"changelog"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"data\": [\n  {\n   \"data\": {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"releaseType\": \"<string>\",\n    \"app\": \"<string>\",\n    \"createdAt\": \"<number>\",\n    \"updatedAt\": \"<number>\",\n    \"link\": \"<string>\",\n    \"archivedAt\": \"<number>\"\n   }\n  },\n  {\n   \"data\": {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"body\": \"<string>\",\n    \"releaseType\": \"<string>\",\n    \"app\": \"<string>\",\n    \"createdAt\": \"<number>\",\n    \"updatedAt\": \"<number>\",\n    \"link\": \"<string>\",\n    \"archivedAt\": \"<number>\"\n   }\n  }\n ],\n \"pagination\": {\n  \"page\": \"<string>\",\n  \"perPage\": \"<number>\",\n  \"next\": \"<string>\"\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "Creating/Updating a changelog (depending if the ID is passed in the request)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/changelog",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"changelog"
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Return an array when successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/changelog",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"changelog"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"data\": \"<array>\",\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "integrations",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "setup",
+							"item": [
+								{
+									"name": "Get next step to setup integration",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/setup",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"setup"
+											],
+											"variable": [
+												{
+													"key": "subdomain",
+													"value": "{{subdomain}}",
+													"description": "Subdomain assigned at account creation"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Client error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": ""
+													}
+												],
+												"url": {
+													"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/setup",
+													"protocol": "https",
+													"host": [
+														"{{subdomain}}",
+														"api",
+														"geckoengage",
+														"com"
+													],
+													"path": [
+														"integrations",
+														":id",
+														"setup"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+										},
+										{
+											"name": "Return the next challenge, if any",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": ""
+													}
+												],
+												"url": {
+													"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/setup",
+													"protocol": "https",
+													"host": [
+														"{{subdomain}}",
+														"api",
+														"geckoengage",
+														"com"
+													],
+													"path": [
+														"integrations",
+														":id",
+														"setup"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"success\": \"<boolean>\",\n \"data\": {\n  \"challenge\": {\n   \"challengeName\": \"<string>\",\n   \"challengeValue\": \"<string>\"\n  }\n },\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Handle the next step to setup integration",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/setup",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"setup"
+											],
+											"variable": [
+												{
+													"key": "subdomain",
+													"value": "{{subdomain}}",
+													"description": "Subdomain assigned at account creation"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Client error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": ""
+													}
+												],
+												"url": {
+													"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/setup",
+													"protocol": "https",
+													"host": [
+														"{{subdomain}}",
+														"api",
+														"geckoengage",
+														"com"
+													],
+													"path": [
+														"integrations",
+														":id",
+														"setup"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+										},
+										{
+											"name": "Check the received answer",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": ""
+													}
+												],
+												"url": {
+													"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/setup",
+													"protocol": "https",
+													"host": [
+														"{{subdomain}}",
+														"api",
+														"geckoengage",
+														"com"
+													],
+													"path": [
+														"integrations",
+														":id",
+														"setup"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"success\": \"<boolean>\",\n \"data\": \"<array>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+										}
+									]
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Update an existing **Authentication** configuration for an integration",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/auth",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"integrations",
+										":id",
+										"auth"
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return an integration ID on successful update",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/auth",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"auth"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"data\": {\n  \"integrationId\": \"<string>\"\n },\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								},
+								{
+									"name": "Client error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/auth",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"auth"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Update an existing **Connection** configuration for an integration",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/connections",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"integrations",
+										":id",
+										"connections"
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return an integration ID on successful update",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/connections",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"connections"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"data\": {\n  \"integrationId\": \"<string>\"\n },\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								},
+								{
+									"name": "Client error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/connections",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"connections"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Return the connection attributes",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/:connectionCategory/attributes",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"integrations",
+										":id",
+										":connectionCategory",
+										"attributes"
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Client error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/:connectionCategory/attributes",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												":connectionCategory",
+												"attributes"
+											],
+											"variable": [
+												{
+													"key": "id"
+												},
+												{
+													"key": "connectionCategory"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								},
+								{
+									"name": "Return an array of attributes",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/:connectionCategory/attributes",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												":connectionCategory",
+												"attributes"
+											],
+											"variable": [
+												{
+													"key": "id"
+												},
+												{
+													"key": "connectionCategory"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"id\": \"<string>\",\n   \"type\": \"<string>\",\n   \"config\": {\n    \"module\": \"<string>\"\n   }\n  },\n  {\n   \"id\": \"<string>\",\n   \"type\": \"<string>\",\n   \"config\": {\n    \"module\": \"<string>\"\n   }\n  }\n ],\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Map a field from primary connection to the secondary one",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/map-field",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"integrations",
+										":id",
+										"map-field"
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Client error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/map-field",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"map-field"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								},
+								{
+									"name": "Return the mapped field id",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/map-field",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"map-field"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"data\": {\n  \"fieldId\": \"<string>\"\n },\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get the mapped fields of an integration",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									}
+								],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/mapped-fields",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"integrations",
+										":id",
+										"mapped-fields"
+									],
+									"variable": [
+										{
+											"key": "subdomain",
+											"value": "{{subdomain}}",
+											"description": "Subdomain assigned at account creation"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Client error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/mapped-fields",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"mapped-fields"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								},
+								{
+									"name": "Return an array with integration's mapped fields",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/mapped-fields",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"mapped-fields"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"fieldId\": \"<string>\",\n   \"integrationId\": \"<string>\",\n   \"primitiveType\": \"<string>\",\n   \"primaryAttribute\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"config\": {\n     \"module\": \"<string>\"\n    }\n   },\n   \"secondaryAttribute\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"config\": {\n     \"module\": \"<string>\"\n    }\n   }\n  },\n  {\n   \"fieldId\": \"<string>\",\n   \"integrationId\": \"<string>\",\n   \"primitiveType\": \"<string>\",\n   \"primaryAttribute\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"config\": {\n     \"module\": \"<string>\"\n    }\n   },\n   \"secondaryAttribute\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"config\": {\n     \"module\": \"<string>\"\n    }\n   }\n  }\n ],\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								},
+								{
+									"name": "Server error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": ""
+											}
+										],
+										"url": {
+											"raw": "https://{{subdomain}}.api.geckoengage.com/integrations/:id/mapped-fields",
+											"protocol": "https",
+											"host": [
+												"{{subdomain}}",
+												"api",
+												"geckoengage",
+												"com"
+											],
+											"path": [
+												"integrations",
+												":id",
+												"mapped-fields"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Hello from root integrations endpoint",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/integrations",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"integrations"
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Return a serialized integration object on successful creation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/integrations",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"integrations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"data\": {\n  \"message\": \"<string>\",\n  \"env\": \"<string>\"\n },\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Client error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/integrations",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"integrations"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create an integration object with a given set of configurations",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerId\": \"<string>\",\n    \"primaryType\": \"<string>\",\n    \"secondaryType\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/integrations",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"integrations"
+							],
+							"variable": [
+								{
+									"key": "subdomain",
+									"value": "{{subdomain}}",
+									"description": "Subdomain assigned at account creation"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Return a serialized integration object on successful creation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ownerId\": \"<string>\",\n    \"primaryType\": \"<string>\",\n    \"secondaryType\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/integrations",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"integrations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"value\": \"reference #/components/schemas/Integration not found in the api spec\"\n  },\n  {\n   \"value\": \"reference #/components/schemas/Integration not found in the api spec\"\n  }\n ],\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Client error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ownerId\": \"<string>\",\n    \"primaryType\": \"<string>\",\n    \"secondaryType\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "https://{{subdomain}}.api.geckoengage.com/integrations",
+									"protocol": "https",
+									"host": [
+										"{{subdomain}}",
+										"api",
+										"geckoengage",
+										"com"
+									],
+									"path": [
+										"integrations"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get an account's current email reputation",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "https://{{subdomain}}.api.geckoengage.com/email-reputation/account/:accountId",
+					"protocol": "https",
+					"host": [
+						"{{subdomain}}",
+						"api",
+						"geckoengage",
+						"com"
+					],
+					"path": [
+						"email-reputation",
+						"account",
+						":accountId"
+					],
+					"variable": [
+						{
+							"key": "subdomain",
+							"value": "{{subdomain}}",
+							"description": "Subdomain assigned at account creation"
+						},
+						{
+							"key": "accountId",
+							"value": "<string>",
+							"description": "The account to get email reputation for"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Client error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/email-reputation/account/<string>",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"email-reputation",
+								"account",
+								"<string>"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+				},
+				{
+					"name": "The returned account email reputation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/email-reputation/account/<string>",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"email-reputation",
+								"account",
+								"<string>"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n },\n \"data\": [\n  {\n   \"accountId\": \"<string>\",\n   \"state\": \"<string>\",\n   \"reputation\": \"<float>\",\n   \"calculatedOver\": \"<integer>\"\n  },\n  {\n   \"accountId\": \"<string>\",\n   \"state\": \"<string>\",\n   \"reputation\": \"<float>\",\n   \"calculatedOver\": \"<integer>\"\n  }\n ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Check the status of a token and retrieve information about the user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "https://{{subdomain}}.api.geckoengage.com/auth/check",
+					"protocol": "https",
+					"host": [
+						"{{subdomain}}",
+						"api",
+						"geckoengage",
+						"com"
+					],
+					"path": [
+						"auth",
+						"check"
+					],
+					"variable": [
+						{
+							"key": "subdomain",
+							"value": "{{subdomain}}",
+							"description": "Subdomain assigned at account creation"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "The returned user and account data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/auth/check",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"auth",
+								"check"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"data\": {\n  \"user\": {\n   \"email\": \"<email>\",\n   \"authId\": \"<string>\",\n   \"fullName\": \"<string>\",\n   \"lastActive\": \"<string>\"\n  },\n  \"account\": {\n   \"routingId\": \"<integer>\",\n   \"name\": \"<string>\",\n   \"shortName\": \"<string>\",\n   \"uuid\": \"<string>\",\n   \"timezone\": \"<string>\",\n   \"shortDateFormat\": \"<string>\",\n   \"timeFormat\": \"<string>\"\n  }\n }\n}"
+				},
+				{
+					"name": "Client error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/auth/check",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"auth",
+								"check"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+				}
+			]
+		},
+		{
+			"name": "List all the forms in the account",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "https://{{subdomain}}.api.geckoengage.com/forms?published=<integer>&search=<string>",
+					"protocol": "https",
+					"host": [
+						"{{subdomain}}",
+						"api",
+						"geckoengage",
+						"com"
+					],
+					"path": [
+						"forms"
+					],
+					"query": [
+						{
+							"key": "published",
+							"value": "<integer>",
+							"description": "Pass 1/0 to filter for published or unpublished forms."
+						},
+						{
+							"key": "search",
+							"value": "<string>",
+							"description": "Search text to filter forms"
+						}
+					],
+					"variable": [
+						{
+							"key": "subdomain",
+							"value": "{{subdomain}}",
+							"description": "Subdomain assigned at account creation"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Return a list of all the forms",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/forms?published=<integer>&search=<string>",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"forms"
+							],
+							"query": [
+								{
+									"key": "published",
+									"value": "<integer>"
+								},
+								{
+									"key": "search",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"data\": [\n  {\n   \"uuid\": \"<string>\",\n   \"name\": \"<string>\",\n   \"internalName\": \"<string>\",\n   \"urls\": {\n    \"modern\": \"<string>\",\n    \"iframe\": \"<string>\",\n    \"embed\": \"<string>\"\n   },\n   \"published\": \"<boolean>\"\n  },\n  {\n   \"uuid\": \"<string>\",\n   \"name\": \"<string>\",\n   \"internalName\": \"<string>\",\n   \"urls\": {\n    \"modern\": \"<string>\",\n    \"iframe\": \"<string>\",\n    \"embed\": \"<string>\"\n   },\n   \"published\": \"<boolean>\"\n  }\n ],\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n },\n \"pagination\": {\n  \"total\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"page\": 1,\n  \"perPage\": 50,\n  \"next\": \"<integer>\",\n  \"prev\": \"<integer>\"\n }\n}"
+				},
+				{
+					"name": "Client error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/forms?published=<integer>&search=<string>",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"forms"
+							],
+							"query": [
+								{
+									"key": "published",
+									"value": "<integer>"
+								},
+								{
+									"key": "search",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a shortURL",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": ""
+					}
+				],
+				"url": {
+					"raw": "https://{{subdomain}}.api.geckoengage.com/short-urls?url=<string>&time=<string>&signature=<string>",
+					"protocol": "https",
+					"host": [
+						"{{subdomain}}",
+						"api",
+						"geckoengage",
+						"com"
+					],
+					"path": [
+						"short-urls"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "<string>",
+							"description": "The URL to shorten"
+						},
+						{
+							"key": "time",
+							"value": "<string>",
+							"description": "The timestamp of the request"
+						},
+						{
+							"key": "signature",
+							"value": "<string>",
+							"description": "The signature to authorise the request"
+						}
+					],
+					"variable": [
+						{
+							"key": "subdomain",
+							"value": "{{subdomain}}",
+							"description": "Subdomain assigned at account creation"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Return a short URL",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/short-urls?url=<string>&time=<string>&signature=<string>",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"short-urls"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "<string>"
+								},
+								{
+									"key": "time",
+									"value": "<string>"
+								},
+								{
+									"key": "signature",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"data\": {\n  \"code\": \"<string>\",\n  \"url\": \"<string>\",\n  \"shortUrl\": \"<string>\"\n },\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+				},
+				{
+					"name": "Client error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/short-urls?url=<string>&time=<string>&signature=<string>",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"short-urls"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "<string>"
+								},
+								{
+									"key": "time",
+									"value": "<string>"
+								},
+								{
+									"key": "signature",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+				}
+			]
+		},
+		{
+			"name": "A temporary page to test public auth",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{subdomain}}.api.geckoengage.com/public-test",
+					"protocol": "https",
+					"host": [
+						"{{subdomain}}",
+						"api",
+						"geckoengage",
+						"com"
+					],
+					"path": [
+						"public-test"
+					],
+					"variable": [
+						{
+							"key": "subdomain",
+							"value": "{{subdomain}}",
+							"description": "Subdomain assigned at account creation"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Client error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/public-test",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"public-test"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"errors\": [\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  },\n  {\n   \"code\": \"<number>\",\n   \"title\": \"<string>\",\n   \"detail\": \"<string>\"\n  }\n ]\n}"
+				},
+				{
+					"name": "Hello world",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/public-test",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								"public-test"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": \"<boolean>\",\n \"data\": \"<object>\",\n \"errors\": {\n  \"code\": \"<number>\",\n  \"title\": \"<string>\",\n  \"detail\": \"<string>\"\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "OPTIONS preflight",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://{{subdomain}}.api.geckoengage.com/:all+",
+					"protocol": "https",
+					"host": [
+						"{{subdomain}}",
+						"api",
+						"geckoengage",
+						"com"
+					],
+					"path": [
+						":all+"
+					],
+					"variable": [
+						{
+							"key": "subdomain",
+							"value": "{{subdomain}}",
+							"description": "Subdomain assigned at account creation"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ok",
+					"originalRequest": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "https://{{subdomain}}.api.geckoengage.com/:all+",
+							"protocol": "https",
+							"host": [
+								"{{subdomain}}",
+								"api",
+								"geckoengage",
+								"com"
+							],
+							"path": [
+								":all+"
+							],
+							"variable": [
+								{
+									"key": "all+"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": ""
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": ""
+						},
+						{
+							"key": "Cache-Control",
+							"value": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "subdomain",
+			"key": "subdomain",
+			"value": "demo",
+			"type": "any",
+			"description": {
+				"content": "Subdomain assigned at account creation",
+				"type": "text/plain"
+			}
+		},
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "https://{{subdomain}}.api.geckoengage.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
