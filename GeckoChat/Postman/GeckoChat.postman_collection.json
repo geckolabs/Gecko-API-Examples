@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "f8e500d0-0636-4d19-beed-d4862dfbaa30",
+		"name": "GeckoChat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Twitter Receive Message",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"direct_message_events\": [\n        {\n            \"type\": \"message_create\",\n            \"id\": \"some-twitter-message-uuid\",\n            \"message_create\": {\n                \"sender_id\": \"some-sender-twitter-id\",\n                \"target\": {\n                    \"recipient_id\": \"1470719403511664646\"\n                },\n                \"message_data\": {\n                    \"text\": \"Message content\"\n                },\n                \"created_timestamp\": 123456789\n            }\n        }\n    ],\n    \"users\": {\n        \"some-sender-twitter-id\": {\n            \"name\": \"Joe Bloggs\",\n            \"screen_name\": \"@joebloggs\",\n            \"profile_image_url\": \"https://picsum.photos/200\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://router-useast1.geckochat.io/twitter/receive_event",
+					"protocol": "https",
+					"host": [
+						"router-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"twitter",
+						"receive_event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Facebook Receive Message",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"entry\": [\n        {\n            \"messaging\": [\n                {\n                    \"message\": {\n                        \"mid\": \"some-facebook-message-uuid\",\n                        \"attachments\": [\n                            {\"url\": \"https://picsum.photos/200\"}\n                        ],\n                        \"text\": \"Message content\",\n                        \"timestamp\": 123456789\n                    },\n                    \"sender\": {\n                        \"id\": \"some-sender-facebook-id\"\n                    },\n                    \"recipient\": {\n                        \"id\": \"607613236095193\"\n                    }\n                }\n            ]\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://router-useast1.geckochat.io/facebook/receive_message",
+					"protocol": "https",
+					"host": [
+						"router-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"facebook",
+						"receive_message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Prechat Form",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sender_channel_type\": \"live_chat\",\n    \"recipient_channel_type\": \"gecko_chat\",\n    \"sender_channel_random_key\": \"5S6mj9dQkag0UQ1\",\n    \"sender_live_chat_key\": \"some-livechat-id\",\n    \"user_info\": {\n        \"first_name\": \"Joe\",\n        \"last_name\": \"Bloggs\",\n        \"email\": \"joe.bloggs@example.com\",\n        \"custom\": {\n            \"817\": \"57c440a0-d255-4585-bf13-5c5e84521ca0\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://router-useast1.geckochat.io/live_chat/submit_pre_chat_form",
+					"protocol": "https",
+					"host": [
+						"router-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"live_chat",
+						"submit_pre_chat_form"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get contacts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "your-auth-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api-useast1.geckochat.io/contact?page=1&search=",
+					"protocol": "https",
+					"host": [
+						"api-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"contact"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "search",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get contact",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "your-auth-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-useast1.geckochat.io/contact/:contactId",
+					"protocol": "https",
+					"host": [
+						"api-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"contact",
+						":contactId"
+					],
+					"variable": [
+						{
+							"key": "contactId",
+							"value": "1416534"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update contact",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "your-auth-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Bloggs\",\n    \"email\": \"joe.bloggs@example.com\",\n    \"custom_fields\": {\n        \"817\": \"57c440a0-d255-4585-bf13-5c5e84521ca0\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-useast1.geckochat.io/models/contacts/:contactId",
+					"protocol": "https",
+					"host": [
+						"api-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"models",
+						"contacts",
+						":contactId"
+					],
+					"variable": [
+						{
+							"key": "contactId",
+							"value": "1416534"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get agents",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "your-auth-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-useast1.geckochat.io/models/agents",
+					"protocol": "https",
+					"host": [
+						"api-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"models",
+						"agents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get agent",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "your-auth-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-useast1.geckochat.io/models/agents/:agentId",
+					"protocol": "https",
+					"host": [
+						"api-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"models",
+						"agents",
+						":agentId"
+					],
+					"variable": [
+						{
+							"key": "agentId",
+							"value": "1406564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update agent",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "your-auth-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Joe\",\n    \"last_name\": \"Bloggs\",\n    \"email\": \"joe.bloggs@example.com\",\n    \"signature\": {\n        \"blocks\": [\n            {\n                \"key\": \"9v9o7\",\n                \"text\": \"This is a signature\",\n                \"type\": \"unstyled\",\n                \"depth\": 0,\n                \"inlineStyleRanges\": [],\n                \"entityRanges\": [],\n                \"data\": {}\n            }\n        ],\n        \"entityMap\": {}\n    },\n    \"group_id\": 267\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-useast1.geckochat.io/models/agents/:agentId",
+					"protocol": "https",
+					"host": [
+						"api-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"models",
+						"agents",
+						":agentId"
+					],
+					"variable": [
+						{
+							"key": "agentId",
+							"value": "1406564"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get messages in a conversation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "your-auth-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-useast1.geckochat.io/conversation/:conversationId",
+					"protocol": "https",
+					"host": [
+						"api-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"conversation",
+						":conversationId"
+					],
+					"variable": [
+						{
+							"key": "conversationId",
+							"value": "796878"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Agent message to conversation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "your-auth-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"conversation_id\": 796878,\n    \"sender_channel_id\": 1323,\n    \"sender_id\": 1406564,\n    \"sender\": {\n        \"full_name\": \"Joe Bloggs\",\n        \"id\": 1406564,\n        \"uuid\": \"2021e7e6-edc5-4edc-bb3f-c40725b0f5c3\",\n        \"first_name\": \"PTOne\",\n        \"last_name\": \"Admin\",\n        \"email\": \"assurance@blackfootuk.com\",\n        \"type\": \"agent\",\n        \"account_id\": 201,\n        \"group_id\": 267\n    },\n    \"recipient_id\": 1416534,\n    \"recipient_channel_id\": 1348,\n    \"metadata\": {\n        \"excludeSignature\": false,\n        \"savedReplies\": [],\n        \"subject\": null\n    },\n    \"content\": \"Message content\",\n    \"editor_object\": {\n        \"blocks\": [\n            {\n                \"key\": \"a3clr\",\n                \"text\": \"Message content\",\n                \"type\": \"unstyled\",\n                \"depth\": 0,\n                \"inlineStyleRanges\": [],\n                \"entityRanges\": [],\n                \"data\": {}\n            }\n        ],\n        \"entityMap\": {}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-useast1.geckochat.io/conversation/send-message",
+					"protocol": "https",
+					"host": [
+						"api-useast1",
+						"geckochat",
+						"io"
+					],
+					"path": [
+						"conversation",
+						"send-message"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
