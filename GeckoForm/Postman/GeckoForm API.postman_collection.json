@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "38330798-4ece-4ff7-99f5-312a1ab60e1b",
+		"_postman_id": "d9f5ad37-f025-40c3-b694-9e78be587ba7",
 		"name": "GeckoForm API",
 		"description": "Example requestions for integration with the GeckoForm API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "482856"
 	},
 	"item": [
 		{
@@ -78,7 +79,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{base-url}}/contacts?",
+							"raw": "{{base-url}}/contacts",
 							"host": [
 								"{{base-url}}"
 							],
@@ -142,8 +143,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Fields",
@@ -181,8 +181,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Responses",
@@ -262,8 +261,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Forms",
@@ -308,9 +306,46 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get Form #1 with relations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/forms/1?include=pages.fields,conditions&form_rfields=id,name",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"forms",
+								"1"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "pages.fields,conditions"
+								},
+								{
+									"key": "form_rfields",
+									"value": "id,name"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Values",
@@ -360,8 +395,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"auth": {
@@ -378,7 +412,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "09661ed3-0f6f-43ab-9081-186dcacab42d",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -388,7 +421,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "10b0cdbe-2211-4764-8ff6-16bfc27eaed5",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -398,17 +430,14 @@
 	],
 	"variable": [
 		{
-			"id": "dd1ef423-8d68-4e6d-b50a-e9c4055b2e1c",
 			"key": "base-url",
 			"value": "https://api-eu.geckoform.com/",
 			"type": "string"
 		},
 		{
-			"id": "1a2f27e8-f801-4148-a838-b9711cfe0342",
 			"key": "auth-url",
 			"value": "https://account-api.geckoengage.com/",
 			"type": "string"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
