@@ -141,6 +141,44 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Create a contact",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{id-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"fields\": {\n        \"field1\": {\n            \"first_name\": \"Example\",\n            \"last_name\": \"Contact\"\n        },\n        \"field2\": \"response@example.com\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base-url}}/contacts",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"contacts"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
