@@ -469,12 +469,12 @@
 	"variable": [
 		{
 			"key": "base-url",
-			"value": "https://api-eu.geckoform.com/",
+			"value": "https://api-eu.geckoform.com",
 			"type": "string"
 		},
 		{
 			"key": "auth-url",
-			"value": "https://account-api.geckoengage.com/",
+			"value": "https://account-api.geckoengage.com",
 			"type": "string"
 		}
 	]
