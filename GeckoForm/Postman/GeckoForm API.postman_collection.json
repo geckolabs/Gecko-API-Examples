@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "d9f5ad37-f025-40c3-b694-9e78be587ba7",
+		"_postman_id": "1c6d4880-e2d4-4b8f-ad84-03b84f402ab3",
 		"name": "GeckoForm API",
 		"description": "Example requestions for integration with the GeckoForm API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "482856"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24679460"
 	},
 	"item": [
 		{
@@ -15,13 +15,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -52,19 +48,14 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
 							}
@@ -102,13 +93,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -148,19 +135,14 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
 							}
@@ -169,15 +151,7 @@
 							"mode": "raw",
 							"raw": "{\"fields\": {\n        \"field1\": {\n            \"first_name\": \"Example\",\n            \"last_name\": \"Contact\"\n        },\n        \"field2\": \"response@example.com\"\n    }\n}"
 						},
-						"url": {
-							"raw": "{{base-url}}/contacts",
-							"host": [
-								"{{base-url}}"
-							],
-							"path": [
-								"contacts"
-							]
-						}
+						"url": "{{base-url}}/contacts"
 					},
 					"response": []
 				}
@@ -191,13 +165,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -229,13 +199,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -266,19 +232,14 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
 							}
@@ -287,15 +248,7 @@
 							"mode": "raw",
 							"raw": "{\n    \"uuid\": \"21FO007tpr8cl100ioa5qtyzjk\",\n    \"fields\": {\n        \"field21817\": {\n            \"first_name\": \"Example\",\n            \"last_name\": \"Response\"\n        },\n        \"field21818\": \"response@example.com\"\n    }\n}"
 						},
-						"url": {
-							"raw": "{{base-url}}/responses",
-							"host": [
-								"{{base-url}}"
-							],
-							"path": [
-								"responses"
-							]
-						}
+						"url": "{{base-url}}/responses"
 					},
 					"response": []
 				}
@@ -309,13 +262,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -350,13 +299,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -393,20 +338,15 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{id-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/javascript",
+								"value": "application/json",
 								"type": "text"
 							}
 						],
@@ -419,17 +359,123 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{base-url}}/values/{{value-id}}/replace",
-							"host": [
-								"{{base-url}}"
-							],
-							"path": [
-								"values",
-								"{{value-id}}",
-								"replace"
-							]
-						}
+						"url": "{{base-url}}/values/{{value-id}}/replace"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Create Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{id-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_rfields\": \"account_id,allow_clashing_sessions,attendances_count,auto_waitlist,available_tags,chat_channel_id,checkin_start,children_count,closing_datetime,color,connect_id,connect_title,contacts,cost,country,created_at,crm,deleted_at,delivery_method,description,disable_video_chat,dynamics_id,dynamics_title,end_datetime,full,id,image,integration_ids,integration_syncs,internal_title,location_id,location_title_legacy,maximum,maximum_guests,nice_title,parent_id,radius_id,radius_title,registration_type,responses,responses_count,rsvp_link_type,salesforce_id,salesforce_title,self_checkin,start_datetime,sync_progress,sync_status,synced,syncs,timezone,title,type,updated_at,users,webinar_description,webinar_url\",\n    \"allow_clashing_sessions\": true,\n    \"categories\": [],\n    \"closing_date\": null,\n    \"closing_datetime\": null,\n    \"color\": \"#1E68C9\",\n    \"country\": \"United Kingdom\",\n    \"description\": null,\n    \"delivery_method\": \"venue\",\n    \"disable_video_chat\": 0,\n    \"end_date\": 1725123600,\n    \"end_datetime\": \"2024-08-31 17:00:00\",\n    \"hosts\": [],\n    \"integration_syncs\": {},\n    \"location_id\": \"2vLO007tqd3a4600883i9lr6ke\",\n    \"registration_type\": 30,\n    \"start_date\": \"1725008400\",\n    \"start_datetime\": \"2024-08-30 09:00:00\",\n    \"title\": \"Test event\",\n    \"timezone\": \"Europe/London\",\n    \"type\": 10,\n    \"maximum_guests\": 2,\n    \"webinar_description\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base-url}}/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{id-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"event_rfields\": \"auto_waitlist,checkin_start,color,cost,date_range,delivery_method,description,end_datetime,full,image,location_id,location_title_legacy,maximum,non_cascaded_closing_datetime,parent_id,self_checkin,start_datetime,tags,title,total_attendances,type,webinar_description,webinar_url\",\n    \"closing_date\": null,\n    \"description\": null,\n    \"delivery_method\": \"venue\",\n    \"end_date\": \"1725123600\",\n    \"end_datetime\": \"2024-08-31 17:00:00\",\n    \"hosts\": [],\n    \"parent_id\": 16742,\n    \"start_date\": \"1725008400\",\n    \"start_datetime\": \"2024-08-30 09:00:00\",\n    \"tags\": [],\n    \"title\": \"Example session\",\n    \"type\": 20,\n    \"webinar_description\": null,\n    \"include\": \"children:all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base-url}}/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Session Times",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{id-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"checkin_start\": null,\n    \"children\": [\n        {\n            \"checkin_start\": null,\n            \"non_cascaded_closing_datetime\": null,\n            \"color\": null,\n            \"cost\": null,\n            \"date_range\": [\n                \"1724976000\",\n                \"1725062400\"\n            ],\n            \"delivery_method\": null,\n            \"description\": null,\n            \"end_datetime\": \"2024-08-31 10:00:00\",\n            \"full\": false,\n            \"id\": 16746,\n            \"image\": null,\n            \"location_title_legacy\": null,\n            \"location_id\": null,\n            \"parent_id\": 16745,\n            \"start_datetime\": \"2024-08-30 09:00:00\",\n            \"tags\": null,\n            \"title\": \"30 Aug 2024 09:00 - 31 Aug 2024 17:00\",\n            \"total_attendances\": 0,\n            \"type\": 30,\n            \"maximum\": null,\n            \"auto_waitlist\": false,\n            \"webinar_url\": null,\n            \"webinar_description\": null,\n            \"end_date\": \"1725098400\",\n            \"start_date\": \"1725008400\"\n        },\n        {\n            \"start_datetime\": \"2024-08-30 10:00:00\",\n            \"end_datetime\": \"2024-08-31 11:00:00\",\n            \"type\": 30,\n            \"start_date\": \"1725012000\",\n            \"end_date\": \"1725102000\",\n            \"startDateTime\": {},\n            \"endDateTime\": {}\n        },\n        {\n            \"start_datetime\": \"2024-08-30 11:00:00\",\n            \"end_datetime\": \"2024-08-31 12:00:00\",\n            \"type\": 30,\n            \"start_date\": \"1725015600\",\n            \"end_date\": \"1725105600\",\n            \"startDateTime\": {},\n            \"endDateTime\": {}\n        },\n        {\n            \"start_datetime\": \"2024-08-30 12:00:00\",\n            \"end_datetime\": \"2024-08-31 13:00:00\",\n            \"type\": 30,\n            \"start_date\": \"1725019200\",\n            \"end_date\": \"1725109200\",\n            \"startDateTime\": {},\n            \"endDateTime\": {}\n        },\n        {\n            \"start_datetime\": \"2024-08-30 13:00:00\",\n            \"end_datetime\": \"2024-08-31 14:00:00\",\n            \"type\": 30,\n            \"start_date\": \"1725022800\",\n            \"end_date\": \"1725112800\",\n            \"startDateTime\": {},\n            \"endDateTime\": {}\n        },\n        {\n            \"start_datetime\": \"2024-08-30 14:00:00\",\n            \"end_datetime\": \"2024-08-31 15:00:00\",\n            \"type\": 30,\n            \"start_date\": \"1725026400\",\n            \"end_date\": \"1725116400\",\n            \"startDateTime\": {},\n            \"endDateTime\": {}\n        },\n        {\n            \"start_datetime\": \"2024-08-30 15:00:00\",\n            \"end_datetime\": \"2024-08-31 16:00:00\",\n            \"type\": 30,\n            \"start_date\": \"1725030000\",\n            \"end_date\": \"1725120000\",\n            \"startDateTime\": {},\n            \"endDateTime\": {}\n        },\n        {\n            \"start_datetime\": \"2024-08-30 16:00:00\",\n            \"end_datetime\": \"2024-08-31 17:00:00\",\n            \"type\": 30,\n            \"start_date\": \"1725033600\",\n            \"end_date\": \"1725123600\",\n            \"startDateTime\": {},\n            \"endDateTime\": {}\n        }\n    ],\n    \"closing_date\": null,\n    \"color\": null,\n    \"cost\": null,\n    \"description\": null,\n    \"delivery_method\": \"venue\",\n    \"end_date\": \"1725123600\",\n    \"end_datetime\": \"2024-08-31 17:00:00\",\n    \"hosts\": [],\n    \"id\": 16745,\n    \"image\": null,\n    \"location_id\": null,\n    \"location_title_legacy\": null,\n    \"parent_id\": 16742,\n    \"start_date\": \"1725008400\",\n    \"start_datetime\": \"2024-08-30 09:00:00\",\n    \"tags\": [],\n    \"title\": \"Example session\",\n    \"type\": 20,\n    \"maximum\": null,\n    \"auto_waitlist\": false,\n    \"webinar_url\": null,\n    \"webinar_description\": null,\n    \"include\": \"children:all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base-url}}/events/123"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{id-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{base-url}}/events/123"
 					},
 					"response": []
 				}
@@ -438,13 +484,9 @@
 	],
 	"auth": {
 		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "{{id-token}}",
-				"type": "string"
-			}
-		]
+		"bearer": {
+			"token": "{{id-token}}"
+		}
 	},
 	"event": [
 		{
