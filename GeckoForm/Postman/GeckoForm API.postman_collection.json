@@ -480,6 +480,80 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "RSVP",
+			"item": [
+				{
+					"name": "Get RSVP",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base-url}}/rsvp/{{account-uuid}}/{{contact-uuid}}/{{event-id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Guests",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"guest_count\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base-url}}/attendances/{{event-id}}/change_guests/{{account-uuid}}/{{contact-uuid}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Session",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"per_page\": 999999999,\n    \"attending\": \"yes\",\n    \"registration_force_flags\": [\n        \"closing_date\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base-url}}/attendances/rsvp/{{account-uuid}}/{{contact-uuid}}/{{session-time-id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"per_page\": 999999999,\n    \"attending\": \"no\",\n    \"registration_force_flags\": [\n        \"closing_date\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base-url}}/attendances/rsvp/{{account-uuid}}/{{contact-uuid}}/{{event-id}}"
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"auth": {
