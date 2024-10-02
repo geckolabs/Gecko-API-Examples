@@ -482,6 +482,41 @@
 			]
 		},
 		{
+			"name": "Attendances",
+			"item": [
+				{
+					"name": "Change attendance status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{id-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contact_id\": 78065,\n    \"event_id\": 16086,\n    \"guest_count\": 0,\n    \"status\": 30,\n    \"include\": \"contact\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base-url}}/attendances/123"
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "RSVP",
 			"item": [
 				{
