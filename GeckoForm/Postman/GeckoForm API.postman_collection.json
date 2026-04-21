@@ -154,6 +154,29 @@
 						"url": "{{base-url}}/contacts"
 					},
 					"response": []
+				},
+				{
+					"name": "Update multiple contact fields",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{id-token}}"
+							}
+						},
+						"method": "POST",
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fields\": {\n        \"field22326\": \"No\",\n        \"field20945\": \"Red\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base-url}}/contacts/123"
+					},
+					"response": []
 				}
 			]
 		},
